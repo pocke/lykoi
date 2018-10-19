@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"github.com/pocke/lykoi"
+)
 
 func main() {
-	fmt.Println("test")
+	err := lykoi.Init()
+	if err != nil {
+		panic(err)
+	}
+	defer lykoi.Exit(0)
+
+	select {}
 }
