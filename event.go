@@ -13,6 +13,10 @@ func EventLoop() {
 			switch ev.Key {
 			case termbox.KeyEsc:
 				Exit(0)
+			case termbox.KeyEnter:
+				State.updateCurrentBuffer(func(b *Buffer) {
+					b.Text = append(b.Text, '\n')
+				})
 			default:
 				if ev.Ch != 0 {
 					State.updateCurrentBuffer(func(b *Buffer) {
